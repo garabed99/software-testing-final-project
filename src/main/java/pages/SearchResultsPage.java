@@ -60,7 +60,7 @@ public class SearchResultsPage {
     }
 
     public SelectedSearchResultPage getResultNotFound() {
-        WebElement result = new WebDriverWait(driver, 3)
+        WebElement result = new WebDriverWait(driver, 6)
                 .until(ExpectedConditions.presenceOfElementLocated(resultNotFound));
         result.getText();
         return new SelectedSearchResultPage(driver);
