@@ -21,7 +21,7 @@ public class BaseTest {
 
     @BeforeMethod
     public void setUp(){
-        System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "resources\\chromedriver.exe");
         goHome();
     }
 
