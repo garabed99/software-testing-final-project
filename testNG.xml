@@ -1,0 +1,24 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="Final_Project" verbose="1" >
+    <test name="homePageTest" >
+        <classes>
+            <class name="pages.homePageTest.HomePageTest" />
+        </classes>
+    </test>
+
+    <test name="careerTests">
+        <classes>
+            <class name="pages.fillingJobApplicationTest.JobApplicationPageTest"/>
+            <class name="pages.careersTest.CareersPageTest"/>
+            <class name="pages.careersTest.SelectedCareersPageTest"/>
+        </classes>
+    </test>
+
+    <test name="searchTests">
+        <classes>
+            <class name="pages.searchingTest.SearchResultsPageTest"/>
+
+        </classes>
+    </test>
+</suite>
