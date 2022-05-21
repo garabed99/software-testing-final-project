@@ -29,8 +29,8 @@ public class JobApplicationPageTest extends BaseTest {
         jobApplicationPage.chooseHeardAbout();
 
         //at every run, they keep switching, so better do manually
-//        jobApplicationPage.chooseIfOffered();
-//        jobApplicationPage.chooseAuthorizedToWork();
+        jobApplicationPage.chooseIfOffered();
+        jobApplicationPage.chooseAuthorizedToWork();
         jobApplicationPage.choosePrivacyNotice();
 
         jobApplicationPage.submitApplication();

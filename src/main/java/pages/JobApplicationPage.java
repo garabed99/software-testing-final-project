@@ -69,6 +69,7 @@ public class JobApplicationPage {
                 .until(ExpectedConditions.presenceOfElementLocated(submitBtn));
         submit.click();
     }
+
     public String checkForFirstNameError() {
         return driver.findElement(firstNameError).getText();
     }
