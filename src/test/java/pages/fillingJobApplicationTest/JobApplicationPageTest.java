@@ -15,8 +15,6 @@ import static org.testng.Assert.*;
 
 public class JobApplicationPageTest extends BaseTest {
 
-
-
     @Test
     public void testJobApplication() {
         CareersPage careersPage = homePage.goToCareersPage();

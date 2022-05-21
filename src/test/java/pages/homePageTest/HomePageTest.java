@@ -9,6 +9,7 @@ import static constants.locators.HomePageConstants.*;
 import static org.testng.Assert.assertEquals;
 
 public class HomePageTest extends BaseTest {
+
     private By html = By.xpath(HTML);
 
     @Test

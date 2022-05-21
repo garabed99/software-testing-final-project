@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import static constants.locators.SearchResultsPageConstants.*;
 
@@ -45,6 +46,7 @@ public class SearchResultsPage {
     }
     public int numberOfRelevantAnswers() {
         int count = 0;
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         for(WebElement answer : getSearchedResults()) {
             if(answer.getText().contains(validSearchKeyword)) count++;
         }
