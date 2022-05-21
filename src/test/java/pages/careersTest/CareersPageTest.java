@@ -8,8 +8,6 @@ import static constants.locators.CareersPageConstants.*;
 import static org.testng.Assert.*;
 
 public class CareersPageTest extends BaseTest {
-    private By remoteLocations = By.xpath(REMOTE_LOCATIONS);
-
 
     @Test
     public void checkRemotePosition() {

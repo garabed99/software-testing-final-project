@@ -17,6 +17,6 @@ public class JobApplicationPageConstants {
     public static final String FIRST_NAME = "Garabed";
     public static final String LAST_NAME = "Baghsarian";
     public static final String EMAIL = "garabed.baghsarian@gmail.com";
-    public static final String LOCATION = "Armenia - Yerevan";
-
+    public static final String LOCATION = "Yerevan, Erevan, Armenia";
+public static final String SUBMIT_BUTTON = "//*[@id=\"submit_app\"]";
 }

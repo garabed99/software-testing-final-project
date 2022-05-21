@@ -13,7 +13,6 @@ import static constants.locators.SelectedSearchResultPageConstants.*;
 
 public class SelectedSearchResultPageTest extends BaseTest {
     private String validSearchKeyword = VALID_SEARCH_KEYWORD;
-    private By resultTitle = By.xpath(RESULT_TITLE);
 
     @Test
     public void testArticleRelevancyWithTitle() {

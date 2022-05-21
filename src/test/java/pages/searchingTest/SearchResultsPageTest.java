@@ -14,11 +14,9 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 public class SearchResultsPageTest extends BaseTest {
-    private By firstResult = By.xpath(FIRST_RESULT);
     private String validSearchKeyword = VALID_SEARCH_KEYWORD;
     private String invalidSearchKeyword = INVALID_SEARCH_KEYWORD;
-    private By resultsNotFound = By.xpath(RESULTS_NOT_FOUND);
-    private By firstParagraph = By.xpath(FIRST_SENTENCE);
+
 
     @Test
     public void testAccuracyOfSearch() {
@@ -28,28 +26,24 @@ public class SearchResultsPageTest extends BaseTest {
         assertEquals(4, result, "not accurate");
     }
 
-
-
     @Test
     public void testValidSearch() {
         homePage.search(validSearchKeyword);
         SearchResultsPage searchResultsPage = homePage.goToSearchResultsPage();
         SelectedSearchResultPage selectedSearchResultPage = searchResultsPage.getFirstSearchedResult();
         selectedSearchResultPage.changeLanguageToFrench();
-        WebElement paragraphCheck = new WebDriverWait(driver, 3)
-                .until(ExpectedConditions.presenceOfElementLocated(firstParagraph));
+        selectedSearchResultPage.firstParagraph();
 
-        assertTrue(paragraphCheck.getText().contains("La méthode"), "wrong page");
+
+        assertTrue(selectedSearchResultPage.firstParagraph().contains("La méthode"), "wrong page");
     }
 
     @Test
     public void testInvalidSearch() {
         homePage.search(invalidSearchKeyword);
         SearchResultsPage searchResultsPage = homePage.goToSearchResultsPage();
-        searchResultsPage.getResultNotFound();
-        WebElement resultCheck = new WebDriverWait(driver, 6)
-                .until(ExpectedConditions.presenceOfElementLocated(resultsNotFound));
-        assertTrue(resultCheck.getText().contains("Found 0 matches"), "Seems like website found a result");
+
+        assertTrue(searchResultsPage.getResultNotFound().contains("No document"), "Seems like website found a result");
     }
 
 }

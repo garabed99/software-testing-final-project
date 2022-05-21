@@ -13,7 +13,7 @@ public class CareersPage {
     private By team = By.id(TEAM);
     private By marketingTeam = By.xpath(MARKETING_TEAM);
     private By tableBody = By.className(TABLE_BODY);
-//    private By sanFrancisco = By.xpath(SAN_FRANCISCO_BAY_AREA);
+
     private By seniorSoftwareEng = By.xpath(SENIOR_SOFTWARE_ENGINEER);
     private By remoteLocations = By.xpath(REMOTE_LOCATIONS);
 
@@ -48,6 +48,7 @@ public class CareersPage {
         }
         return true;
     }
+
 }
 
 //*[@id="listings-positions"]/tbody/tr[57]/td[2]

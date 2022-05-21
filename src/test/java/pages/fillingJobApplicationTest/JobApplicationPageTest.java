@@ -11,11 +11,10 @@ import pages.SelectedCareersPage;
 
 import java.util.concurrent.TimeUnit;
 
-import static constants.locators.JobApplicationPageConstants.*;
-import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.*;
 
 public class JobApplicationPageTest extends BaseTest {
-    private By firstNameError = By.xpath(FIRST_NAME_ERROR);
+
 
 
     @Test
@@ -23,18 +22,18 @@ public class JobApplicationPageTest extends BaseTest {
         CareersPage careersPage = homePage.goToCareersPage();
         SelectedCareersPage selectedCareersPage = careersPage.goToSelectedCareersPage();
         JobApplicationPage jobApplicationPage = selectedCareersPage.goToApplyNow();
-        jobApplicationPage.fillFirstName();
+//        jobApplicationPage.fillFirstName();
         jobApplicationPage.fillLastName();
         jobApplicationPage.fillEmail();
         jobApplicationPage.fillLocation();
         jobApplicationPage.chooseHeardAbout();
 
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
         //at every run, they keep switching, so better do manually
 //        jobApplicationPage.chooseIfOffered();
 //        jobApplicationPage.chooseAuthorizedToWork();
         jobApplicationPage.choosePrivacyNotice();
-        assertEquals(0,driver.findElements(firstNameError).size());
+
+        jobApplicationPage.submitApplication();
+        assertTrue(jobApplicationPage.checkForFirstNameError().contains("First Name is required."), "first Name entered");
     }
 }

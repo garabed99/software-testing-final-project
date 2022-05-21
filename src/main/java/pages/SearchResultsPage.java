@@ -59,11 +59,9 @@ public class SearchResultsPage {
         return new SelectedSearchResultPage(driver);
     }
 
-    public SelectedSearchResultPage getResultNotFound() {
-        WebElement result = new WebDriverWait(driver, 6)
-                .until(ExpectedConditions.presenceOfElementLocated(resultNotFound));
-        result.getText();
-        return new SelectedSearchResultPage(driver);
+    public String getResultNotFound() {
+
+        return driver.findElement(resultNotFound).getText();
     }
 
     public SelectedSearchResultPage goToSpecificResultPage(int num) {
@@ -71,7 +69,4 @@ public class SearchResultsPage {
         return new SelectedSearchResultPage(driver);
     }
 
-//    public SelectedSearchResultPage goToFirstResultPage() {
-//        driver.findElement()
-//    }
 }

@@ -12,6 +12,7 @@ public class JobApplicationPage {
     private WebDriver driver;
     private By firstNameInput = By.xpath(FIRST_NAME_INPUT);
     private String firstNameValue = FIRST_NAME;
+    private By firstNameError = By.xpath(FIRST_NAME_ERROR);
     private By lastNameInput = By.xpath(LAST_NAME_INPUT);
     private String lastNameValue = LAST_NAME;
     private By emailInput = By.xpath(EMAIL_INPUT);
@@ -26,14 +27,15 @@ public class JobApplicationPage {
     private By authorizedToWorkYes = By.xpath(AUTHORIZED_TO_WORK_ANSWER_YES);
     private By privacyNotice = By.xpath(PRIVACY_NOTICE);
     private By privacyNoticeYes = By.xpath(PRIVACY_NOTICE_ANSWER_YES);
+    private By submitBtn = By.xpath(SUBMIT_BUTTON);
 
     public JobApplicationPage(WebDriver driver) {
         this.driver = driver;
     }
 
-    public void fillFirstName() {
-        driver.findElement(firstNameInput).sendKeys(firstNameValue);
-    }
+//    public void fillFirstName() {
+//        driver.findElement(firstNameInput).sendKeys(firstNameValue);
+//    }
     public void fillLastName() {
         driver.findElement(lastNameInput).sendKeys(lastNameValue);
     }
@@ -61,5 +63,13 @@ public class JobApplicationPage {
     public void choosePrivacyNotice() {
         driver.findElement(privacyNotice).click();
         driver.findElement(privacyNoticeYes).click();
+    }
+    public void submitApplication() {
+        WebElement submit = new WebDriverWait(driver, 15)
+                .until(ExpectedConditions.presenceOfElementLocated(submitBtn));
+        submit.click();
+    }
+    public String checkForFirstNameError() {
+        return driver.findElement(firstNameError).getText();
     }
 }
